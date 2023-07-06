@@ -2,55 +2,53 @@ import { createBrowserRouter } from "react-router-dom";
 import UserLayout from "../layouts/user-layout";
 import AdminLayout from "../layouts/admin-layout";
 import Dashboard from "../pages/user-pages/Dashboard";
+import FilterPage from "../pages/user-pages/FilterPage";
+import BikePage from "../pages/user-pages/BikePage";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <UserLayout />,
     children: [
       {
-        path: '',
+        path: "",
         element: <Dashboard />,
       },
       {
-        path: 'search',
+        path: "search",
+        element: <FilterPage />,
+      },
+      {
+        path: "bike/:id", // view one bike information
+        element: <BikePage />,
+      },
+      {
+        path: "order", // view + handle (create) 1 order bằng màn 6 + màn 8 trong tài liệu
         element: <Dashboard />,
       },
       {
-        path: 'bike', // view one bike information
+        path: "history", // view all history of order
         element: <Dashboard />,
       },
-      {
-        path: 'order', // view + handle (create) 1 order bằng màn 6 + màn 8 trong tài liệu
-        element: <Dashboard />,
-      },
-      {
-        path: 'history', // view all history of order
-        element: <Dashboard />,
-      }
     ],
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: <AdminLayout />,
-    children: [
-      {
-
-      }
-    ],
+    children: [{}],
   },
   {
-    path: '/auth',
+    path: "/auth",
     element: <Dashboard />,
     children: [
       {
-        path: 'signin'
+        path: "signin",
       },
       {
-        path: 'signup'
-      }
-    ]
-  }
+        path: "signup",
+      },
+    ],
+  },
 ]);
 
 export default router;
