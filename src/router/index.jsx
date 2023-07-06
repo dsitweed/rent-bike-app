@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import UserLayout from "../layouts/user-layout";
 import AdminLayout from "../layouts/admin-layout";
 import Dashboard from "../pages/user-pages/Dashboard";
+import OrderList from "../pages/admin-pages/OrderList";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-
+        path: 'order-list',
+        element: <OrderList />,
       }
     ],
   },
