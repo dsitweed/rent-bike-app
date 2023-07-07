@@ -1,7 +1,7 @@
 export const theme = {
   token: {
     fontFamily: "Inter, 'Noto Sans JP'",
-    colorPrimary: "#d97706",
+    colorPrimary: "#84735e",
     colorSuccess: "#22c55e",
     colorWarning: "#f97316",
     colorError: "#ef4444",

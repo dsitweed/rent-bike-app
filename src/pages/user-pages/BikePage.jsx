@@ -1,7 +1,35 @@
-import { Tag } from "antd";
-
+import { Spin, Tag } from "antd";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { supabase } from "../../plugins/supabase";
 const BikePage = () => {
-  return (
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [bike, setBike] = useState(null);
+
+  useEffect(() => {
+    const load = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("bikes")
+        .select("*")
+        .eq("id", id)
+        .single();
+      if (error) {
+        alert(error);
+      } else {
+        setBike(data);
+      }
+
+      setLoading(false);
+    };
+    load();
+    return () => {};
+  }, [id]);
+
+  return loading || !bike ? (
+    <Spin></Spin>
+  ) : (
     <div className="px-16 py-8 flex h-full gap-10">
       <div>
         <img
@@ -31,12 +59,12 @@ const BikePage = () => {
             </Tag>
           </div>
           <div className="flex flex-row justify-between py-2">
-            <p className="text-4xl font-bold">{"Sh mode 125cc"}</p>
-            <p className="text-4xl">{`50000₫/時間`}</p>
+            <p className="text-4xl font-bold">{bike?.name}</p>
+            <p className="text-4xl">{`${bike?.price}₫/時間`}</p>
           </div>
           <div className="flex-1 text-xl py-8 flex">
             <div className="w-48">
-              <p>プロダクトの ID:</p>
+              <p>プロダクトのID:</p>
               <p>ブランド:</p>
               <p>位置:</p>
               <p>容量:</p>
@@ -44,19 +72,19 @@ const BikePage = () => {
               <p>ボンベ容量:</p>
             </div>
             <p className="flex-1">
-              <p>SHMODE_1234</p>
-              <p>Honda</p>
-              <p>51 P. Lương Khánh Thiện, Tương Mai, Hoàng Mai, Hà Nội</p>
-              <p>5,6l</p>
-              <p>2,16 l/100km</p>
-              <p>125cc</p>
+              <p>{bike?.plate_number}</p>
+              <p>{bike?.brand}</p>
+              <p>{bike?.address}</p>
+              <p>{bike?.tank_capacity}</p>
+              <p>{bike?.fuel_consumption}</p>
+              <p>{bike?.bike_capacity}</p>
             </p>
           </div>
           <div className="flex justify-center gap-4">
-            <button className="px-4 py-3 rounded-lg text-secondary bg-rose-500 text-2xl">
+            <button className="px-4 py-3 rounded-lg text-secondary bg-rose-500 text-xl">
               カートを入れる
             </button>
-            <button className="px-4 py-3 rounded-lg text-secondary bg-emerald-500 text-2xl">
+            <button className="px-4 py-3 rounded-lg text-secondary bg-emerald-500 text-xl">
               すぐレンタル
             </button>
           </div>
