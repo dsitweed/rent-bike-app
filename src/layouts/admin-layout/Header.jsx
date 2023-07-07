@@ -1,9 +1,10 @@
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { colors } from '../../assets/styles/styles';
 
 export default function Header() {
   
   return (
-    <div className="flex justify-between bg-slate-200 p-2 m-2 rounded-3xl">
+    <div style={{ backgroundColor: colors.brownLight}} className="flex justify-between bg-slate-200 p-2 mb-2 rounded-3xl">
       <div className="flex items-center gap-x-5 px-4">
         <MenuOutlined />
         <p>バイク借り</p>
