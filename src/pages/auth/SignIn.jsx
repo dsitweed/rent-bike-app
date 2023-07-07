@@ -14,12 +14,13 @@ const SignIn = () => {
           <Auth
             supabaseClient={supabase}
             providers={["google", "facebook"]}
+            socialLayout="horizontal"
             appearance={{
               theme: ThemeSupa,
               variables: {
                 default: {
                   colors: {
-                    brand: "#d97706",
+                    brand: "#84735e",
                   },
                 },
               },
