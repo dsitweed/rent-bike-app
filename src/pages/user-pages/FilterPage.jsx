@@ -1,5 +1,5 @@
 import { Card, Input, Select } from "antd";
-import React from "react";
+import {} from "react";
 
 const FilterPage = () => {
   return (

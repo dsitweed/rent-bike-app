@@ -1,12 +1,12 @@
-import { Layout, Typography } from "antd";
-import Header from "./Header";
-import { Outlet } from "react-router-dom";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandTiktok,
   IconBrandTwitter,
 } from "@tabler/icons-react";
+import { Layout } from "antd";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
 
 export default function UserLayout() {
   return (
