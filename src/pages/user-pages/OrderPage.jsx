@@ -6,7 +6,7 @@ const OrderPage = () => {
   return (
     <div className="grid grid-cols-2 px-8 py-8 gap-10">
       <div>
-        <div className="flex flex-col gap-4 max-h-80 overflow-auto">
+        <div className="flex flex-col max-h-80 overflow-auto shadow">
           {[...Array(12).keys()].map((item, index) => (
             <div
               key={index}
@@ -33,7 +33,8 @@ const OrderPage = () => {
             </div>
           ))}
         </div>
-        <Form layout="horizontal" size="large" className="mt-12">
+        <span className="block my-4 h-1 w-full bg-primary"></span>
+        <Form layout="horizontal" size="large" className="">
           <Form.Item label="スタート">
             <DatePicker showTime className="w-full" />
           </Form.Item>
@@ -46,7 +47,7 @@ const OrderPage = () => {
         </Form>
       </div>
       <div className="flex flex-col items-center gap-8">
-        <div className="w-full bg-primary text-white rounded-lg flex h-fit flex-col gap-4 px-8 py-4">
+        <div className="w-full bg-primary text-white rounded-lg flex h-fit flex-col gap-12 px-8 py-4">
           <p className="text-center text-2xl font-bold">領収書</p>
           <div className="grid grid-cols-2 text-lg font-bold">
             <p>単価</p>

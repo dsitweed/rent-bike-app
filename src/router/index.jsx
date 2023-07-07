@@ -7,11 +7,13 @@ import FilterPage from "../pages/user-pages/FilterPage";
 import SignIn from "../pages/auth/SignIn";
 import OrderPage from "../pages/user-pages/OrderPage";
 import HistoryPage from "../pages/user-pages/HistoryPage";
+import UnknownError from "../pages/errors/UnknownError";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <UserLayout />,
+    errorElement: <UnknownError />,
     children: [
       {
         path: "",

@@ -4,10 +4,10 @@ import Image from "../../assets/images/bike_dashboard.svg";
 
 const Dashboard = () => {
   return (
-    <div className="flex mt-10">
-      <div className="flex flex-col gap-4 flex-1 text-primary ml-10">
-        <p className="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-primary to-rose-600">
-          バイクを借りる、 旅行をする
+    <div className="grid grid-cols-2 mt-10">
+      <div className="flex flex-col gap-6 flex-1 text-primary ml-10">
+        <p className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-primary to-[#434343]">
+          バイクを借りる、旅行をする
         </p>
         <p className="text-4xl text-primary opacity-90">
           最寄りのエリアであなたの旅に
@@ -31,14 +31,14 @@ const Dashboard = () => {
             />
             <Button
               type="submit"
-              className="text-white absolute right-2.5 bottom-3.5 bg-primary"
+              className="h-[61px] px-8 rounded-l-none text-white absolute right-0 bottom-0 bg-primary"
             >
               Search
             </Button>
           </div>
         </form>
       </div>
-      <img className="flex-1 h-[500px]" src={Image} />
+      <img className="" src={Image} />
     </div>
   );
 };
