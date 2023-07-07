@@ -15,7 +15,7 @@ const Header = () => {
       : "px-3 py-2 text-secondary bg-inherit rounded-lg hover:bg-secondary hover:bg-opacity-20";
   };
   if (!session) {
-    return <Navigate to="/auth/signin" />;
+    return <Navigate to={`/auth/signin?redirect=${location.pathname}`} />;
   }
 
   return (

@@ -1,11 +1,12 @@
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 import { supabase } from "../../plugins/supabase";
 const SignIn = () => {
   const { session } = useContext(AuthContext);
+  const location = useLocation();
 
   if (!session) {
     return (
@@ -30,7 +31,7 @@ const SignIn = () => {
       </div>
     );
   } else {
-    return <Navigate to={"/"} />;
+    return <Navigate to={location.search?.split("=")?.at(1) || "/"} />;
   }
 };
 
